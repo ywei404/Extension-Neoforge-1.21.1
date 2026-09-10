@@ -1,0 +1,13 @@
+{
+  "itemGroup.extension": "Example Mod Tab",
+  "block.extension.example_block": "Example Block",
+  "item.extension.example_item": "Example Item",
+
+  "extension.configuration.title": "Extension-neoforge-1.21.1 Configs",
+  "extension.configuration.section.extension.common.toml": "Extension-neoforge-1.21.1 Configs",
+  "extension.configuration.section.extension.common.toml.title": "Extension-neoforge-1.21.1 Configs",
+  "extension.configuration.items": "Item List",
+  "extension.configuration.logDirtBlock": "Log Dirt Block",
+  "extension.configuration.magicNumberIntroduction": "Magic Number Text",
+  "extension.configuration.magicNumber": "Magic Number"
+}
