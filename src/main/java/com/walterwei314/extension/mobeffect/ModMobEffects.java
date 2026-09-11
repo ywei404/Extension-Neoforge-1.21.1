@@ -1,9 +1,12 @@
 package com.walterwei314.extension.mobeffect;
 
 import com.walterwei314.extension.Extensionneoforge1211;
+import com.walterwei314.extension.attribute.ModAttributes;
 import net.minecraft.core.registries.Registries;
+import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.effect.MobEffect;
 import net.minecraft.world.effect.MobEffectCategory;
+import net.minecraft.world.entity.ai.attributes.AttributeModifier;
 import net.neoforged.neoforge.registries.DeferredHolder;
 import net.neoforged.neoforge.registries.DeferredRegister;
 
@@ -17,5 +20,14 @@ public final class ModMobEffects {
     public static final DeferredHolder<MobEffect, MobEffect> HEAL_BOOST = MOB_EFFECTS.register(
             "heal_boost",
             () -> new BaseMobEffect(MobEffectCategory.BENEFICIAL, 0x00FF00)
+                    .addAttributeModifier(
+                            ModAttributes.HEAL_MULTIPLIER.getDelegate(),
+                            ResourceLocation.fromNamespaceAndPath(
+                                    Extensionneoforge1211.MODID,
+                                    "effect.heal_boost"
+                            ),
+                            0.5D,
+                            AttributeModifier.Operation.ADD_MULTIPLIED_BASE
+                    )
     );
 }

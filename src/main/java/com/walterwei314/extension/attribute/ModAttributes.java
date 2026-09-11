@@ -1,0 +1,18 @@
+package com.walterwei314.extension.attribute;
+
+import com.walterwei314.extension.Extensionneoforge1211;
+import net.minecraft.core.registries.Registries;
+import net.minecraft.world.entity.ai.attributes.Attribute;
+import net.neoforged.neoforge.registries.DeferredHolder;
+import net.neoforged.neoforge.registries.DeferredRegister;
+
+public final class ModAttributes {
+    private ModAttributes() {}
+
+    public static final DeferredRegister<Attribute> ATTRIBUTES = DeferredRegister.create(Registries.ATTRIBUTE, Extensionneoforge1211.MODID);
+
+    public static final DeferredHolder<Attribute, Attribute> HEAL_MULTIPLIER = ATTRIBUTES.register(
+            "heal_multiplier",
+            () -> new BaseAttribute("heal_multiplier", 1.0, 0.0, Float.MAX_VALUE)
+    );
+}

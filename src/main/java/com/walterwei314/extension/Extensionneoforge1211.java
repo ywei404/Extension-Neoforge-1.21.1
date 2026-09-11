@@ -1,5 +1,6 @@
 package com.walterwei314.extension;
 
+import com.walterwei314.extension.attribute.ModAttributes;
 import com.walterwei314.extension.mobeffect.ModMobEffects;
 import net.minecraft.world.effect.MobEffect;
 import org.slf4j.Logger;
@@ -71,6 +72,8 @@ public class Extensionneoforge1211 {
         // Register the commonSetup method for modloading
         modEventBus.addListener(this::commonSetup);
 
+        // Register the Deferred Register to the mod event bus so attributes get registered
+        ModAttributes.ATTRIBUTES.register(modEventBus);
         // Register the Deferred Register to the mod event bus so blocks get registered
         BLOCKS.register(modEventBus);
         // Register the Deferred Register to the mod event bus so items get registered

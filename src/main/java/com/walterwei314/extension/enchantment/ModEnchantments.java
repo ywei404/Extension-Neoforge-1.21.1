@@ -1,6 +1,7 @@
 package com.walterwei314.extension.enchantment;
 
 import com.walterwei314.extension.Extensionneoforge1211;
+import com.walterwei314.extension.attribute.ModAttributes;
 import net.minecraft.core.HolderGetter;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.data.worldgen.BootstrapContext;
@@ -43,9 +44,9 @@ public final class ModEnchantments {
                                                 Extensionneoforge1211.MODID,
                                                 "enchantment.shan_jia"
                                         ), // enchantment id
-                                        Attributes.ARMOR, // attribute
-                                        LevelBasedValue.perLevel(1.0F), // value
-                                        AttributeModifier.Operation.ADD_VALUE // operation
+                                        ModAttributes.HEAL_MULTIPLIER, // attribute
+                                        LevelBasedValue.perLevel(0.1F), // value
+                                        AttributeModifier.Operation.ADD_MULTIPLIED_BASE // operation
                                 ))
                         .build(SHAN_JIA.location()) // creation
         );
