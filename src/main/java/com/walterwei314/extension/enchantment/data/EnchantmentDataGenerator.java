@@ -11,7 +11,7 @@ import net.neoforged.neoforge.data.event.GatherDataEvent;
 import java.util.Set;
 
 @EventBusSubscriber(modid = Extensionneoforge1211.MODID)
-public final class EnchantmentDataGenerators {
+public final class EnchantmentDataGenerator {
 
     @SubscribeEvent
     public static void gatherData(GatherDataEvent event) {
@@ -25,6 +25,6 @@ public final class EnchantmentDataGenerators {
         );
     }
 
-    private EnchantmentDataGenerators() {
+    private EnchantmentDataGenerator() {
     }
 }

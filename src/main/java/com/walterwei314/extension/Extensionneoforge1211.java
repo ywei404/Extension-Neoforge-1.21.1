@@ -1,6 +1,8 @@
 package com.walterwei314.extension;
 
 import com.walterwei314.extension.attribute.ModAttributes;
+import com.walterwei314.extension.item.armor.ModArmorItems;
+import com.walterwei314.extension.item.armor.material.ModArmorMaterials;
 import com.walterwei314.extension.mobeffect.ModMobEffects;
 import net.minecraft.world.effect.MobEffect;
 import org.slf4j.Logger;
@@ -80,6 +82,10 @@ public class Extensionneoforge1211 {
         ITEMS.register(modEventBus);
         // Register the Deferred Register to the mod event bus so mob effects get registered
         ModMobEffects.MOB_EFFECTS.register(modEventBus);
+        // Register the Deferred Register to the mod event bus so mob effects get registered
+        ModArmorMaterials.ARMOR_MATERIALS.register(modEventBus);
+        // Register the Deferred Register to the mod event bus so mob effects get registered
+        ModArmorItems.ARMOR_ITEMS.register(modEventBus);
         // Register the Deferred Register to the mod event bus so tabs get registered
         CREATIVE_MODE_TABS.register(modEventBus);
 
