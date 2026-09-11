@@ -2,9 +2,11 @@ package com.walterwei314.extension.item.armor.material;
 
 import com.walterwei314.extension.Extensionneoforge1211;
 import com.walterwei314.extension.attribute.BaseAttribute;
+import com.walterwei314.extension.item.armor.util.ArmorItemUtils;
 import net.minecraft.client.resources.sounds.Sound;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.sounds.SoundEvents;
+import net.minecraft.tags.ItemTags;
 import net.minecraft.world.entity.ai.attributes.Attribute;
 import net.minecraft.world.item.*;
 import net.minecraft.world.item.crafting.Ingredient;
@@ -23,18 +25,16 @@ public final class ModArmorMaterials {
     public static final DeferredHolder<ArmorMaterial, ArmorMaterial> DIRT_ARMOR_MATERIAL = ARMOR_MATERIALS.register(
             "dirt_armor_material",
             id -> new ArmorMaterial(
-                    Map.of(
-                            ArmorItem.Type.HELMET, 1,
-                            ArmorItem.Type.CHESTPLATE, 1,
-                            ArmorItem.Type.LEGGINGS, 1,
-                            ArmorItem.Type.BOOTS, 1
-                    ),
-                    5,
-                    SoundEvents.ARMOR_EQUIP_LEATHER,
-                    () -> Ingredient.of(Items.DIRT),
-                    List.of(new ArmorMaterial.Layer(id)),
-                    0.0F,
-                    0.0F
+                    ArmorItemUtils.distributeArmor(4), 5, SoundEvents.ARMOR_EQUIP_LEATHER,
+                    () -> Ingredient.of(ItemTags.DIRT), List.of(new ArmorMaterial.Layer(id)), 0.0F, 0.0F
+            )
+    );
+
+    public static final DeferredHolder<ArmorMaterial, ArmorMaterial> WOODEN_ARMOR_MATERIAL = ARMOR_MATERIALS.register(
+            "wooden_armor_material",
+            id -> new ArmorMaterial(
+                    ArmorItemUtils.distributeArmor(9), 15, SoundEvents.ARMOR_EQUIP_GOLD,
+                    () -> Ingredient.of(ItemTags.LOGS), List.of(new ArmorMaterial.Layer(id)), 0.0F, 0.0F
             )
     );
 }

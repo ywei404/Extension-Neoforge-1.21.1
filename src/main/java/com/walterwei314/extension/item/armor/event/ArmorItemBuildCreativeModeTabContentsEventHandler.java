@@ -11,7 +11,8 @@ public class ArmorItemBuildCreativeModeTabContentsEventHandler {
     @SubscribeEvent
     public static void addCreativeTab(BuildCreativeModeTabContentsEvent event) {
         if (event.getTabKey() == CreativeModeTabs.COMBAT) {
-            ModArmorItems.DIRT_ARMOR_SET.forEach(event::accept);
+            ModArmorItems.DIRT_ARMOR_MAP.values().forEach(event::accept);
+            ModArmorItems.WOODEN_ARMOR_MAP.values().forEach(event::accept);
         }
     }
 }

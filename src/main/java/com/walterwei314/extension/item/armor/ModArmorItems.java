@@ -9,7 +9,7 @@ import net.minecraft.world.item.Item;
 import net.neoforged.neoforge.registries.DeferredItem;
 import net.neoforged.neoforge.registries.DeferredRegister;
 
-import java.util.List;
+import java.util.Map;
 
 public final class ModArmorItems {
 
@@ -19,19 +19,22 @@ public final class ModArmorItems {
     public static final DeferredRegister.Items ARMOR_ITEMS =
             DeferredRegister.createItems(Extensionneoforge1211.MODID);
 
-    public static final List<DeferredItem<ArmorItem>> DIRT_ARMOR_SET =
+    public static final Map<ArmorItem.Type, DeferredItem<ArmorItem>> DIRT_ARMOR_MAP =
             registerArmorSet("dirt", ModArmorMaterials.DIRT_ARMOR_MATERIAL.getDelegate(), 3);
 
-    private static List<DeferredItem<ArmorItem>> registerArmorSet(
+    public static final Map<ArmorItem.Type, DeferredItem<ArmorItem>> WOODEN_ARMOR_MAP =
+            registerArmorSet("wooden", ModArmorMaterials.WOODEN_ARMOR_MATERIAL.getDelegate(), 6);
+
+    private static Map<ArmorItem.Type, DeferredItem<ArmorItem>> registerArmorSet(
             String name,
             Holder<ArmorMaterial> material,
             int durabilityMultiplier
     ) {
-        return List.of(
-                registerArmorItem(name + "_helmet", material, ArmorItem.Type.HELMET, durabilityMultiplier),
-                registerArmorItem(name + "_chestplate", material, ArmorItem.Type.CHESTPLATE, durabilityMultiplier),
-                registerArmorItem(name + "_leggings", material, ArmorItem.Type.LEGGINGS, durabilityMultiplier),
-                registerArmorItem(name + "_boots", material, ArmorItem.Type.BOOTS, durabilityMultiplier)
+        return Map.of(
+                ArmorItem.Type.HELMET, registerArmorItem(name + "_helmet", material, ArmorItem.Type.HELMET, durabilityMultiplier),
+                ArmorItem.Type.CHESTPLATE, registerArmorItem(name + "_chestplate", material, ArmorItem.Type.CHESTPLATE, durabilityMultiplier),
+                ArmorItem.Type.LEGGINGS, registerArmorItem(name + "_leggings", material, ArmorItem.Type.LEGGINGS, durabilityMultiplier),
+                ArmorItem.Type.BOOTS, registerArmorItem(name + "_boots", material, ArmorItem.Type.BOOTS, durabilityMultiplier)
         );
     }
 
@@ -41,12 +44,22 @@ public final class ModArmorItems {
             ArmorItem.Type type,
             int durabilityMultiplier
     ) {
+        return registerArmorItem(name, material, type, durabilityMultiplier, new Item.Properties());
+    }
+
+    private static DeferredItem<ArmorItem> registerArmorItem(
+            String name,
+            Holder<ArmorMaterial> material,
+            ArmorItem.Type type,
+            int durabilityMultiplier,
+            Item.Properties properties
+    ) {
         return ARMOR_ITEMS.register(
                 name,
-                () -> new ArmorItem(
+                () -> new BaseArmor(
                         material,
                         type,
-                        new Item.Properties().durability(type.getDurability(durabilityMultiplier))
+                        properties.durability(type.getDurability(durabilityMultiplier))
                 )
         );
     }
