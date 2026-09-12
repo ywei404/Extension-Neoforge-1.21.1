@@ -1,19 +1,27 @@
 package com.walterwei314.extension.item.armor.event;
 
+import com.walterwei314.extension.item.armor.BaseArmor;
 import com.walterwei314.extension.item.armor.ModArmorItems;
+import net.minecraft.core.Registry;
+import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.world.item.CreativeModeTabs;
+import net.minecraft.world.item.Item;
 import net.neoforged.bus.api.SubscribeEvent;
 import net.neoforged.fml.common.EventBusSubscriber;
 import net.neoforged.neoforge.event.BuildCreativeModeTabContentsEvent;
+
+import java.util.function.Consumer;
 
 @EventBusSubscriber
 public class ArmorItemBuildCreativeModeTabContentsEventHandler {
     @SubscribeEvent
     public static void addCreativeTab(BuildCreativeModeTabContentsEvent event) {
         if (event.getTabKey() == CreativeModeTabs.COMBAT) {
-            ModArmorItems.DIRT_ARMOR_MAP.values().forEach(event::accept);
-            ModArmorItems.WOODEN_ARMOR_MAP.values().forEach(event::accept);
-            ModArmorItems.STONE_ARMOR_MAP.values().forEach(event::accept);
+            BuiltInRegistries.ITEM.forEach(item -> {
+                if (item instanceof BaseArmor){
+                    event.accept(item);
+                }
+            });
         }
     }
 }

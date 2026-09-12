@@ -29,7 +29,6 @@ public final class ModArmorMaterials {
                     () -> Ingredient.of(ItemTags.DIRT), List.of(new ArmorMaterial.Layer(id)), 0.0F, 0.0F
             )
     );
-
     public static final DeferredHolder<ArmorMaterial, ArmorMaterial> WOODEN_ARMOR_MATERIAL = ARMOR_MATERIALS.register(
             "wooden_armor_material",
             id -> new ArmorMaterial(
@@ -37,12 +36,32 @@ public final class ModArmorMaterials {
                     () -> Ingredient.of(ItemTags.LOGS), List.of(new ArmorMaterial.Layer(id)), 0.0F, 0.0F
             )
     );
-
     public static final DeferredHolder<ArmorMaterial, ArmorMaterial> STONE_ARMOR_MATERIAL = ARMOR_MATERIALS.register(
             "stone_armor_material",
             id -> new ArmorMaterial(
                     ArmorItemUtils.distributeArmor(13), 7, SoundEvents.ARMOR_EQUIP_IRON,
                     () -> Ingredient.of(ItemTags.STONE_TOOL_MATERIALS), List.of(new ArmorMaterial.Layer(id)), 0.0F, 0.0F
+            )
+    );
+    public static final DeferredHolder<ArmorMaterial, ArmorMaterial> OBSIDIAN_ARMOR_MATERIAL = ARMOR_MATERIALS.register(
+            "obsidian_armor_material",
+            id -> new ArmorMaterial(
+                    ArmorItemUtils.distributeArmor(17), 8, SoundEvents.ARMOR_EQUIP_IRON,
+                    () -> Ingredient.of(Items.OBSIDIAN), List.of(new ArmorMaterial.Layer(id)), 0.5F, 0.05F
+            )
+    );
+    public static final DeferredHolder<ArmorMaterial, ArmorMaterial> EMERALD_ARMOR_MATERIAL = ARMOR_MATERIALS.register(
+            "emerald_armor_material",
+            id -> new ArmorMaterial(
+                    ArmorItemUtils.distributeArmor(18), 18, SoundEvents.ARMOR_EQUIP_DIAMOND,
+                    () -> Ingredient.of(Items.EMERALD), List.of(new ArmorMaterial.Layer(id)), 1.0F, 0.0F
+            )
+    );
+    public static final DeferredHolder<ArmorMaterial, ArmorMaterial> GOLDEN_APPLE_ARMOR_MATERIAL = ARMOR_MATERIALS.register(
+            "golden_apple_armor_material",
+            id -> new ArmorMaterial(
+                    ArmorItemUtils.distributeArmor(19), 30, SoundEvents.ARMOR_EQUIP_DIAMOND,
+                    () -> Ingredient.of(Items.GOLDEN_APPLE), List.of(new ArmorMaterial.Layer(id)), 2.0F, 0.0F
             )
     );
 }

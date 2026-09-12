@@ -12,6 +12,7 @@ import net.minecraft.tags.ItemTags;
 import net.minecraft.tags.TagKey;
 import net.minecraft.world.item.ArmorItem;
 import net.minecraft.world.item.Item;
+import net.minecraft.world.item.Items;
 import net.minecraft.world.item.crafting.Ingredient;
 import net.minecraft.world.level.ItemLike;
 import net.neoforged.neoforge.registries.DeferredItem;
@@ -36,6 +37,10 @@ public class ArmorItemRecipeProvider extends RecipeProvider {
         generateArmorRecipes(output, ItemTags.DIRT, ModArmorItems.DIRT_ARMOR_MAP);
         generateArmorRecipes(output, ItemTags.LOGS, ModArmorItems.WOODEN_ARMOR_MAP);
         generateArmorRecipes(output, ItemTags.STONE_TOOL_MATERIALS, ModArmorItems.STONE_ARMOR_MAP);
+        generateArmorRecipes(output, Items.OBSIDIAN, ModArmorItems.OBSIDIAN_ARMOR_MAP);
+        generateArmorRecipes(output, Items.EMERALD, ModArmorItems.EMERALD_ARMOR_MAP);
+        generateArmorRecipes(output, Items.GOLDEN_APPLE, ModArmorItems.GOLDEN_APPLE_ARMOR_MAP);
+
 
         // ItemLike 类型以后也可以这样：
         //

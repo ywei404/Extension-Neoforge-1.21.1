@@ -25,6 +25,12 @@ public final class ModArmorItems {
             registerArmorSet("wooden", ModArmorMaterials.WOODEN_ARMOR_MATERIAL.getDelegate(), 6);
     public static final Map<ArmorItem.Type, DeferredItem<ArmorItem>> STONE_ARMOR_MAP =
             registerArmorSet("stone", ModArmorMaterials.STONE_ARMOR_MATERIAL.getDelegate(), 13);
+    public static final Map<ArmorItem.Type, DeferredItem<ArmorItem>> OBSIDIAN_ARMOR_MAP =
+            registerArmorSet("obsidian", ModArmorMaterials.OBSIDIAN_ARMOR_MATERIAL.getDelegate(), 74);
+    public static final Map<ArmorItem.Type, DeferredItem<ArmorItem>> EMERALD_ARMOR_MAP =
+            registerArmorSet("emerald", ModArmorMaterials.EMERALD_ARMOR_MATERIAL.getDelegate(), 24);
+    public static final Map<ArmorItem.Type, DeferredItem<ArmorItem>> GOLDEN_APPLE_ARMOR_MAP =
+            registerArmorSet("golden_apple", ModArmorMaterials.GOLDEN_APPLE_ARMOR_MATERIAL.getDelegate(), 56);
 
     private static Map<ArmorItem.Type, DeferredItem<ArmorItem>> registerArmorSet(
             String name,
