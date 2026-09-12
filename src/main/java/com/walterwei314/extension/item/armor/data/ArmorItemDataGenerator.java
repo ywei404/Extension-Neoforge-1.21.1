@@ -17,8 +17,7 @@ public final class ArmorItemDataGenerator {
         DataGenerator generator = event.getGenerator();
 
         generator.addProvider(
-                event.includeServer(),
-                new ArmorItemRecipeProvider(
+                event.includeServer(), new ArmorItemRecipeProvider(
                         generator.getPackOutput(),
                         event.getLookupProvider()
                 )

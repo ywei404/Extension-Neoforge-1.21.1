@@ -4,8 +4,10 @@ import net.minecraft.core.Holder;
 import net.minecraft.world.effect.MobEffect;
 import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.entity.LivingEntity;
+import net.neoforged.neoforge.common.util.TriPredicate;
 import net.neoforged.neoforge.event.entity.living.LivingEvent;
 import net.neoforged.neoforge.event.entity.living.MobEffectEvent;
+import org.jetbrains.annotations.NotNull;
 
 import java.util.function.Consumer;
 
@@ -65,5 +67,29 @@ public final class MobEffectUtils {
         }
 
         effectConsumer.accept(mobEffectInstance);
+    }
+
+    public static final TriPredicate<MobEffectInstance, Integer, Integer> ALWAYS_ADD =
+            (mobEffectInstance, duration, amplifier) -> true;
+    public static final TriPredicate<MobEffectInstance, Integer, Integer> ADD_BEFORE_EXPIRATION =
+            (mobEffectInstance, duration, amplifier) ->
+                    mobEffectInstance.getDuration() <= 1 || mobEffectInstance.getAmplifier() < amplifier;
+
+    public static void addEffect(LivingEntity entity, Holder<MobEffect> effect, int duration, int amplifier, TriPredicate<MobEffectInstance, Integer, Integer> condition){
+        if (entity == null || effect == null || condition == null || duration <= 0 || amplifier < 0){
+            return;
+        }
+
+        if (entity.level().isClientSide()) {
+            return;
+        }
+
+        MobEffectInstance previousEffectInstance = entity.getEffect(effect);
+
+        if (previousEffectInstance != null && !condition.test(previousEffectInstance, duration, amplifier)){
+            return;
+        }
+
+        entity.addEffect(new MobEffectInstance(effect, duration, amplifier));
     }
 }

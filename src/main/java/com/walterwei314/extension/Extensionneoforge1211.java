@@ -2,6 +2,7 @@ package com.walterwei314.extension;
 
 import com.walterwei314.extension.attribute.ModAttributes;
 import com.walterwei314.extension.item.armor.ModArmorItems;
+import com.walterwei314.extension.item.armor.ability.InventoryTick;
 import com.walterwei314.extension.item.armor.material.ModArmorMaterials;
 import com.walterwei314.extension.mobeffect.ModMobEffects;
 import net.minecraft.world.effect.MobEffect;
@@ -126,5 +127,7 @@ public class Extensionneoforge1211 {
     public void onServerStarting(ServerStartingEvent event) {
         // Do something when the server starts
         LOGGER.info("HELLO from server starting");
+        // Register tick events to armor items
+        InventoryTick.register();
     }
 }
