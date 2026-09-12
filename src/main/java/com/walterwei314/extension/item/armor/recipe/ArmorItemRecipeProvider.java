@@ -35,6 +35,7 @@ public class ArmorItemRecipeProvider extends RecipeProvider {
         // Tag 类型
         generateArmorRecipes(output, ItemTags.DIRT, ModArmorItems.DIRT_ARMOR_MAP);
         generateArmorRecipes(output, ItemTags.LOGS, ModArmorItems.WOODEN_ARMOR_MAP);
+        generateArmorRecipes(output, ItemTags.STONE_TOOL_MATERIALS, ModArmorItems.STONE_ARMOR_MAP);
 
         // ItemLike 类型以后也可以这样：
         //

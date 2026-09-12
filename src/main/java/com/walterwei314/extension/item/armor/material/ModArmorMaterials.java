@@ -37,4 +37,12 @@ public final class ModArmorMaterials {
                     () -> Ingredient.of(ItemTags.LOGS), List.of(new ArmorMaterial.Layer(id)), 0.0F, 0.0F
             )
     );
+
+    public static final DeferredHolder<ArmorMaterial, ArmorMaterial> STONE_ARMOR_MATERIAL = ARMOR_MATERIALS.register(
+            "stone_armor_material",
+            id -> new ArmorMaterial(
+                    ArmorItemUtils.distributeArmor(13), 7, SoundEvents.ARMOR_EQUIP_IRON,
+                    () -> Ingredient.of(ItemTags.STONE_TOOL_MATERIALS), List.of(new ArmorMaterial.Layer(id)), 0.0F, 0.0F
+            )
+    );
 }

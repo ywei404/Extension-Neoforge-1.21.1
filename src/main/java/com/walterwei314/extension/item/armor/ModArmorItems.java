@@ -21,9 +21,10 @@ public final class ModArmorItems {
 
     public static final Map<ArmorItem.Type, DeferredItem<ArmorItem>> DIRT_ARMOR_MAP =
             registerArmorSet("dirt", ModArmorMaterials.DIRT_ARMOR_MATERIAL.getDelegate(), 3);
-
     public static final Map<ArmorItem.Type, DeferredItem<ArmorItem>> WOODEN_ARMOR_MAP =
             registerArmorSet("wooden", ModArmorMaterials.WOODEN_ARMOR_MATERIAL.getDelegate(), 6);
+    public static final Map<ArmorItem.Type, DeferredItem<ArmorItem>> STONE_ARMOR_MAP =
+            registerArmorSet("stone", ModArmorMaterials.STONE_ARMOR_MATERIAL.getDelegate(), 13);
 
     private static Map<ArmorItem.Type, DeferredItem<ArmorItem>> registerArmorSet(
             String name,

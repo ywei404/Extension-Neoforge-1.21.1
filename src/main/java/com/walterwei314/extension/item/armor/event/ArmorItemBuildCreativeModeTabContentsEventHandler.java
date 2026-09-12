@@ -13,6 +13,7 @@ public class ArmorItemBuildCreativeModeTabContentsEventHandler {
         if (event.getTabKey() == CreativeModeTabs.COMBAT) {
             ModArmorItems.DIRT_ARMOR_MAP.values().forEach(event::accept);
             ModArmorItems.WOODEN_ARMOR_MAP.values().forEach(event::accept);
+            ModArmorItems.STONE_ARMOR_MAP.values().forEach(event::accept);
         }
     }
 }

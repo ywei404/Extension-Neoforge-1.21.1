@@ -89,7 +89,6 @@ public class Extensionneoforge1211 {
         ModArmorItems.ARMOR_ITEMS.register(modEventBus);
         // Register the Deferred Register to the mod event bus so tabs get registered
         CREATIVE_MODE_TABS.register(modEventBus);
-
         // Register ourselves for server and other game events we are interested in.
         // Note that this is necessary if and only if we want *this* class (Extensionneoforge1211) to respond directly to events.
         // Do not add this line if there are no @SubscribeEvent-annotated functions in this class, like onServerStarting() below.
