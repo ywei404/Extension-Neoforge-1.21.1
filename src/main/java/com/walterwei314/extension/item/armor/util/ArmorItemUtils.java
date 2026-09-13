@@ -1,9 +1,16 @@
 package com.walterwei314.extension.item.armor.util;
 
+import net.minecraft.world.entity.EquipmentSlot;
+import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ArmorItem;
+import net.minecraft.world.item.Item;
+import net.minecraft.world.item.ItemStack;
+import net.neoforged.neoforge.registries.DeferredItem;
 
 import java.util.EnumMap;
+import java.util.List;
 import java.util.Map;
+import java.util.function.Consumer;
 
 public final class ArmorItemUtils {
 
@@ -126,5 +133,49 @@ public final class ArmorItemUtils {
 
     private static double square(double value) {
         return value * value;
+    }
+
+    public static boolean isWearingFullSet(Player player, Map<ArmorItem.Type, ArmorItem> armorItems){
+        if (player == null || player.level().isClientSide() || armorItems == null || armorItems.isEmpty()) {
+            return false;
+        }
+
+        return armorItems.entrySet().stream().allMatch(entry ->
+                player.getItemBySlot(entry.getKey().getSlot()).is(entry.getValue()));
+    }
+
+    public static Map<ArmorItem.Type, ArmorItem> getArmorItemMap(Map<ArmorItem.Type, DeferredItem<ArmorItem>> deferredItemMap){
+        Map<ArmorItem.Type, ArmorItem> result = new EnumMap<>(ArmorItem.Type.class);
+
+        if (deferredItemMap == null || deferredItemMap.isEmpty()) {
+            return result;
+        }
+
+        for (Map.Entry<ArmorItem.Type, DeferredItem<ArmorItem>> entry : deferredItemMap.entrySet()) {
+            result.put(entry.getKey(), entry.getValue().get());
+        }
+
+        return result;
+    }
+
+    public static Map<ArmorItem.Type, ArmorItem> getCurrentArmorItemMap(Player player) {
+        EnumMap<ArmorItem.Type, ArmorItem> result =
+                new EnumMap<>(ArmorItem.Type.class);
+
+        if (player == null || player.level().isClientSide()) {
+            return result;
+        }
+
+        for (ArmorItem.Type type : ArmorItem.Type.values()) {
+            Item item = player.getItemBySlot(type.getSlot()).getItem();
+
+            if (!type.hasTrims() || !(item instanceof ArmorItem armorItem)) {
+                continue;
+            }
+
+            result.put(type, armorItem);
+        }
+
+        return result;
     }
 }

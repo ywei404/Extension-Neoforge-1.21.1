@@ -9,6 +9,7 @@ import net.minecraft.world.item.Item;
 import net.neoforged.neoforge.registries.DeferredItem;
 import net.neoforged.neoforge.registries.DeferredRegister;
 
+import java.util.HashMap;
 import java.util.Map;
 
 public final class ModArmorItems {
@@ -31,6 +32,8 @@ public final class ModArmorItems {
             registerArmorSet("emerald", ModArmorMaterials.EMERALD_ARMOR_MATERIAL.getDelegate(), 24);
     public static final Map<ArmorItem.Type, DeferredItem<ArmorItem>> GOLDEN_APPLE_ARMOR_MAP =
             registerArmorSet("golden_apple", ModArmorMaterials.GOLDEN_APPLE_ARMOR_MATERIAL.getDelegate(), 56);
+    public static final Map<ArmorItem.Type, DeferredItem<ArmorItem>> ENCHANTED_GOLDEN_APPLE_ARMOR_MAP =
+            registerArmorSet("enchanted_golden_apple", ModArmorMaterials.ENCHANTED_GOLDEN_APPLE_ARMOR_MATERIAL.getDelegate(), 10000);
 
     private static Map<ArmorItem.Type, DeferredItem<ArmorItem>> registerArmorSet(
             String name,

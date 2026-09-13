@@ -75,21 +75,41 @@ public final class MobEffectUtils {
             (mobEffectInstance, duration, amplifier) ->
                     mobEffectInstance.getDuration() <= 1 || mobEffectInstance.getAmplifier() < amplifier;
 
-    public static void addEffect(LivingEntity entity, Holder<MobEffect> effect, int duration, int amplifier, TriPredicate<MobEffectInstance, Integer, Integer> condition){
-        if (entity == null || effect == null || condition == null || duration <= 0 || amplifier < 0){
-            return;
-        }
-
-        if (entity.level().isClientSide()) {
+    public static void addEffect(LivingEntity entity, Holder<MobEffect> effect, int duration, int amplifier, TriPredicate<MobEffectInstance, Integer, Integer> condition) {
+        if (entity == null
+                || entity.level().isClientSide()
+                || effect == null
+                || condition == null
+                || duration <= 0
+                || amplifier < 0
+        ) {
             return;
         }
 
         MobEffectInstance previousEffectInstance = entity.getEffect(effect);
 
-        if (previousEffectInstance != null && !condition.test(previousEffectInstance, duration, amplifier)){
+        if (previousEffectInstance != null && !condition.test(previousEffectInstance, duration, amplifier)) {
             return;
         }
 
         entity.addEffect(new MobEffectInstance(effect, duration, amplifier));
+    }
+
+    public static void addEffectEveryTicks(LivingEntity entity, Holder<MobEffect> effect, int duration, int amplifier, int interval, long time, TriPredicate<MobEffectInstance, Integer, Integer> condition) {
+        if (effect == null || entity.level().isClientSide() || interval <= 0 || time < 0) {
+            return;
+        }
+
+        if (time % interval == 0) {
+            addEffect(entity, effect, duration, amplifier, condition);
+        }
+    }
+
+    public static void addEffectEveryTicks(LivingEntity entity, Holder<MobEffect> effect, int duration, int amplifier, int interval, TriPredicate<MobEffectInstance, Integer, Integer> condition) {
+        if (effect == null || entity.level().isClientSide()) {
+            return;
+        }
+
+        addEffectEveryTicks(entity, effect, duration, amplifier, interval, entity.level().getGameTime(), condition);
     }
 }

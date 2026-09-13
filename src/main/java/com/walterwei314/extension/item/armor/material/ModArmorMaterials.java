@@ -64,4 +64,12 @@ public final class ModArmorMaterials {
                     () -> Ingredient.of(Items.GOLDEN_APPLE), List.of(new ArmorMaterial.Layer(id)), 2.0F, 0.0F
             )
     );
+
+    public static final DeferredHolder<ArmorMaterial, ArmorMaterial> ENCHANTED_GOLDEN_APPLE_ARMOR_MATERIAL = ARMOR_MATERIALS.register(
+            "enchanted_golden_apple_armor_material",
+            id -> new ArmorMaterial(
+                    ArmorItemUtils.distributeArmor(180), 100, SoundEvents.ARMOR_EQUIP_DIAMOND,
+                    () -> Ingredient.of(Items.ENCHANTED_GOLDEN_APPLE), List.of(new ArmorMaterial.Layer(id)), 20.0F, 10.0F
+            )
+    );
 }
