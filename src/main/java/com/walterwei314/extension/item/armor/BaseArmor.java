@@ -10,9 +10,6 @@ import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.Level;
 import org.jetbrains.annotations.NotNull;
 
-import java.util.HashMap;
-import java.util.Map;
-
 public class BaseArmor extends ArmorItem {
     public BaseArmor(Holder<ArmorMaterial> material, Type type, Properties properties) {
         super(material, type, properties);
