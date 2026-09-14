@@ -1,16 +1,12 @@
 package com.walterwei314.extension.item.armor.util;
 
-import net.minecraft.world.entity.EquipmentSlot;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ArmorItem;
 import net.minecraft.world.item.Item;
-import net.minecraft.world.item.ItemStack;
 import net.neoforged.neoforge.registries.DeferredItem;
 
 import java.util.EnumMap;
-import java.util.List;
 import java.util.Map;
-import java.util.function.Consumer;
 
 public final class ArmorItemUtils {
 

@@ -9,7 +9,6 @@ import net.minecraft.world.item.Item;
 import net.neoforged.neoforge.registries.DeferredItem;
 import net.neoforged.neoforge.registries.DeferredRegister;
 
-import java.util.HashMap;
 import java.util.Map;
 
 public final class ModArmorItems {
