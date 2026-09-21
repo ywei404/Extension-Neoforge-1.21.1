@@ -34,5 +34,9 @@ public class ArmorItemModelProvider extends ItemModelProvider {
 //        });
 
         ModArmorItems.EMERALD_ARMOR_MAP.values().forEach(item -> basicItem(item.get()));
+        ModArmorItems.WOODEN_ARMOR_MAP.values().forEach(item -> basicItem(item.get()));
+        ModArmorItems.STONE_ARMOR_MAP.values().forEach(item -> basicItem(item.get()));
+        ModArmorItems.OBSIDIAN_ARMOR_MAP.values().forEach(item -> basicItem(item.get()));
+        ModArmorItems.GOLDEN_APPLE_ARMOR_MAP.values().forEach(item -> basicItem(item.get()));
     }
 }

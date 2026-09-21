@@ -1,0 +1,11 @@
+{
+  "values": [
+    "extension:dirt_chestplate",
+    "extension:wooden_chestplate",
+    "extension:stone_chestplate",
+    "extension:obsidian_chestplate",
+    "extension:emerald_chestplate",
+    "extension:golden_apple_chestplate",
+    "extension:enchanted_golden_apple_chestplate"
+  ]
+}

@@ -1,0 +1,11 @@
+{
+  "values": [
+    "extension:dirt_helmet",
+    "extension:wooden_helmet",
+    "extension:stone_helmet",
+    "extension:obsidian_helmet",
+    "extension:emerald_helmet",
+    "extension:golden_apple_helmet",
+    "extension:enchanted_golden_apple_helmet"
+  ]
+}

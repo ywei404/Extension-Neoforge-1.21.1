@@ -38,7 +38,7 @@ public final class InventoryTick {
 
     public static void register() {
         ModArmorItems.WOODEN_ARMOR_MAP.forEach((type, armorItemDeferredItem) -> TICKS.put(armorItemDeferredItem.get(),
-                (k, v, s) -> MobEffectUtils.addEffect(v, MobEffects.HUNGER, 600, 0, MobEffectUtils.ADD_BEFORE_EXPIRATION)));
+                (k, v, s) -> MobEffectUtils.addEffect(v, MobEffects.WEAKNESS, 600, 0, MobEffectUtils.ADD_BEFORE_EXPIRATION)));
         ModArmorItems.STONE_ARMOR_MAP.forEach((type, armorItemDeferredItem) -> TICKS.put(armorItemDeferredItem.get(),
                 (k, v, s) -> MobEffectUtils.addEffect(v, MobEffects.MOVEMENT_SLOWDOWN, 600, 0, MobEffectUtils.ADD_BEFORE_EXPIRATION)));
         ModArmorItems.OBSIDIAN_ARMOR_MAP.forEach((type, armorItemDeferredItem) -> TICKS.put(armorItemDeferredItem.get(),

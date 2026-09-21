@@ -1,0 +1,32 @@
+{
+  "values": [
+    "extension:dirt_helmet",
+    "extension:dirt_chestplate",
+    "extension:dirt_leggings",
+    "extension:dirt_boots",
+    "extension:wooden_helmet",
+    "extension:wooden_chestplate",
+    "extension:wooden_leggings",
+    "extension:wooden_boots",
+    "extension:stone_helmet",
+    "extension:stone_chestplate",
+    "extension:stone_leggings",
+    "extension:stone_boots",
+    "extension:obsidian_helmet",
+    "extension:obsidian_chestplate",
+    "extension:obsidian_leggings",
+    "extension:obsidian_boots",
+    "extension:emerald_helmet",
+    "extension:emerald_chestplate",
+    "extension:emerald_leggings",
+    "extension:emerald_boots",
+    "extension:golden_apple_helmet",
+    "extension:golden_apple_chestplate",
+    "extension:golden_apple_leggings",
+    "extension:golden_apple_boots",
+    "extension:enchanted_golden_apple_helmet",
+    "extension:enchanted_golden_apple_chestplate",
+    "extension:enchanted_golden_apple_leggings",
+    "extension:enchanted_golden_apple_boots"
+  ]
+}
