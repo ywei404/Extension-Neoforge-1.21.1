@@ -1,18 +1,18 @@
 {
   "anvil_cost": 2,
   "description": {
-    "translate": "enchantment.extension.fortification"
+    "translate": "enchantment.extension.reinforcement"
   },
   "effects": {
     "minecraft:attributes": [
       {
         "amount": {
           "type": "minecraft:linear",
-          "base": 0.5,
-          "per_level_above_first": 0.5
+          "base": 1.0,
+          "per_level_above_first": 1.0
         },
-        "attribute": "minecraft:generic.armor_toughness",
-        "id": "extension:enchantment.fortification",
+        "attribute": "minecraft:generic.armor",
+        "id": "extension:enchantment.reinforcement",
         "operation": "add_value"
       }
     ]

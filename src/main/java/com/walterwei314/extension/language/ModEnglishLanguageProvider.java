@@ -3,6 +3,7 @@ package com.walterwei314.extension.language;
 import com.walterwei314.extension.Extensionneoforge1211;
 import com.walterwei314.extension.enchantment.ModEnchantments;
 import com.walterwei314.extension.util.ModUtils;
+import com.walterwei314.extension.util.ReflectionUtils;
 import com.walterwei314.extension.util.StringUtils;
 import net.minecraft.core.Registry;
 import net.minecraft.core.registries.BuiltInRegistries;
@@ -16,6 +17,7 @@ import net.neoforged.neoforge.common.data.LanguageProvider;
 import java.lang.reflect.Field;
 import java.lang.reflect.Modifier;
 import java.util.Arrays;
+import java.util.function.Consumer;
 
 public class ModEnglishLanguageProvider extends LanguageProvider {
     public ModEnglishLanguageProvider(PackOutput output) {
@@ -45,37 +47,17 @@ public class ModEnglishLanguageProvider extends LanguageProvider {
         });
 
         // Enchantments
-        for (Field field : ModEnchantments.class.getDeclaredFields()) {
+        ReflectionUtils.staticResourceKeyForEach(ModEnchantments.class, resourceKey -> {
+            ResourceLocation key = resourceKey.location();
 
-            if (!Modifier.isStatic(field.getModifiers())) {
-                continue;
+            if (!ModUtils.isKeyInThisMod(key)) {
+                return;
             }
 
-            if (!ResourceKey.class.isAssignableFrom(field.getType())) {
-                continue;
-            }
-
-            try {
-                Object value = field.get(null);
-
-                if (!(value instanceof ResourceKey<?> resourceKey)) {
-                    continue;
-                }
-
-                ResourceLocation key = resourceKey.location();
-
-                if (!ModUtils.isKeyInThisMod(key)) {
-                    continue;
-                }
-
-                add(
-                        "enchantment." + key.getNamespace() + "." + key.getPath(),
-                        StringUtils.fromPathToDisplayName(key.getPath())
-                );
-
-            } catch (IllegalAccessException e) {
-                throw new RuntimeException("Failed to generate language entry for " + field.getName(), e);
-            }
-        }
+            add(
+                    "enchantment." + key.getNamespace() + "." + key.getPath(),
+                    StringUtils.fromPathToDisplayName(key.getPath())
+            );
+        });
     }
 }

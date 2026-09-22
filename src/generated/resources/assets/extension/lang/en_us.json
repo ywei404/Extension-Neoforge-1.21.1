@@ -1,6 +1,8 @@
 {
   "effect.extension.heal_boost": "Heal Boost",
   "enchantment.extension.fortification": "Fortification",
+  "enchantment.extension.reinforcement": "Reinforcement",
+  "enchantment.extension.vitality": "Vitality",
   "item.extension.dirt_boots": "Dirt Boots",
   "item.extension.dirt_chestplate": "Dirt Chestplate",
   "item.extension.dirt_helmet": "Dirt Helmet",

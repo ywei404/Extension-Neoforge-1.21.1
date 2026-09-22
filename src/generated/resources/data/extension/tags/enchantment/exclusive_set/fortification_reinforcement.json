@@ -7,10 +7,6 @@
     {
       "id": "extension:reinforcement",
       "required": false
-    },
-    {
-      "id": "extension:vitality",
-      "required": false
     }
   ]
 }
