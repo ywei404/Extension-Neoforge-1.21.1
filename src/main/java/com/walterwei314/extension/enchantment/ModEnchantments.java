@@ -25,45 +25,26 @@ public final class ModEnchantments {
     public static final ResourceKey<Enchantment> FORTIFICATION =
             ResourceKey.create(
                     Registries.ENCHANTMENT,
-                    ResourceLocation.fromNamespaceAndPath(
-                            Extensionneoforge1211.MODID,
-                            "fortification"
-                    )
+                    ResourceLocation.fromNamespaceAndPath(Extensionneoforge1211.MODID, "fortification")
             );
 
     public static void bootstrap(BootstrapContext<Enchantment> context) {
         HolderGetter<Item> items = context.lookup(Registries.ITEM);
-
-        HolderSet<Item> armorEnchantable =
-                items.getOrThrow(ItemTags.ARMOR_ENCHANTABLE);
+        HolderSet<Item> armorEnchantable = items.getOrThrow(ItemTags.ARMOR_ENCHANTABLE);
 
         context.register(
                 FORTIFICATION,
-                Enchantment.enchantment(
-                                Enchantment.definition(
-                                        armorEnchantable, // supported_items
-                                        armorEnchantable, // primary_items
-                                        5,                // weight
-                                        4,                // max level
-                                        Enchantment.dynamicCost(1, 11),
-                                        Enchantment.dynamicCost(12, 11),
-                                        2,
-                                        EquipmentSlotGroup.ARMOR
-                                )
-                        )
-                        .withEffect(
-                                EnchantmentEffectComponents.ATTRIBUTES,
-                                new EnchantmentAttributeEffect(
-                                        ResourceLocation.fromNamespaceAndPath(
-                                                Extensionneoforge1211.MODID,
-                                                "enchantment.fortification"
-                                        ),
-                                        Attributes.ARMOR_TOUGHNESS,
-                                        LevelBasedValue.perLevel(0.5F),
-                                        AttributeModifier.Operation.ADD_VALUE
-                                )
-                        )
-                        .build(FORTIFICATION.location())
+                Enchantment.enchantment(Enchantment.definition(// supported_items, primary_items
+                        armorEnchantable, armorEnchantable,
+                        5, 4,
+                        Enchantment.dynamicCost(1, 11),
+                        Enchantment.dynamicCost(12, 11),
+                        2, EquipmentSlotGroup.ARMOR
+                )).withEffect(EnchantmentEffectComponents.ATTRIBUTES,
+                        new EnchantmentAttributeEffect(
+                                ResourceLocation.fromNamespaceAndPath(Extensionneoforge1211.MODID, "enchantment.fortification"),
+                                Attributes.ARMOR_TOUGHNESS, LevelBasedValue.perLevel(0.5F), AttributeModifier.Operation.ADD_VALUE
+                        )).build(FORTIFICATION.location())
         );
     }
 }

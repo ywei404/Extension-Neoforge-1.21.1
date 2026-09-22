@@ -5,6 +5,6 @@ import net.minecraft.world.damagesource.CombatRules;
 import net.minecraft.world.damagesource.DamageSource;
 import net.minecraft.world.entity.ai.attributes.Attributes;
 
-public class LivingEntityUtils {
+public final class LivingEntityUtils {
     private LivingEntityUtils(){}
 }

@@ -2,6 +2,7 @@ package com.walterwei314.extension.language;
 
 import com.walterwei314.extension.Extensionneoforge1211;
 import com.walterwei314.extension.enchantment.ModEnchantments;
+import com.walterwei314.extension.util.ModUtils;
 import com.walterwei314.extension.util.StringUtils;
 import net.minecraft.core.Registry;
 import net.minecraft.core.registries.BuiltInRegistries;
@@ -25,9 +26,8 @@ public class ModEnglishLanguageProvider extends LanguageProvider {
     protected void addTranslations() {
         BuiltInRegistries.ITEM.forEach(item -> {
             ResourceLocation key = BuiltInRegistries.ITEM.getKey(item);
-            String namespace = key.getNamespace();
 
-            if (!namespace.equals(Extensionneoforge1211.MODID)){
+            if (!ModUtils.isKeyInThisMod(key)){
                 return;
             }
 
@@ -36,9 +36,8 @@ public class ModEnglishLanguageProvider extends LanguageProvider {
 
         BuiltInRegistries.MOB_EFFECT.forEach(mobEffect -> {
             ResourceLocation key = BuiltInRegistries.MOB_EFFECT.getKey(mobEffect);
-            String namespace = key.getNamespace();
 
-            if (!namespace.equals(Extensionneoforge1211.MODID)){
+            if (!ModUtils.isKeyInThisMod(key)){
                 return;
             }
 
@@ -65,7 +64,7 @@ public class ModEnglishLanguageProvider extends LanguageProvider {
 
                 ResourceLocation key = resourceKey.location();
 
-                if (!key.getNamespace().equals(Extensionneoforge1211.MODID)) {
+                if (!ModUtils.isKeyInThisMod(key)) {
                     continue;
                 }
 
