@@ -1,0 +1,8 @@
+{
+  "values": [
+    {
+      "id": "extension:fortification",
+      "required": false
+    }
+  ]
+}

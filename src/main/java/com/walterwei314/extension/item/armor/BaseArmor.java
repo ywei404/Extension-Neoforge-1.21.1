@@ -1,6 +1,7 @@
 package com.walterwei314.extension.item.armor;
 
 import com.walterwei314.extension.item.armor.ability.InventoryTick;
+import com.walterwei314.extension.item.armor.ability.IsFoil;
 import net.minecraft.core.Holder;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.LivingEntity;
@@ -9,6 +10,8 @@ import net.minecraft.world.item.ArmorMaterial;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.Level;
 import org.jetbrains.annotations.NotNull;
+
+import java.util.function.Predicate;
 
 public class BaseArmor extends ArmorItem {
     public BaseArmor(Holder<ArmorMaterial> material, Type type, Properties properties) {
@@ -40,5 +43,10 @@ public class BaseArmor extends ArmorItem {
 
         InventoryTick.TICKS.get(this)
                 .forEach(tick -> tick.accept(stack, livingEntity, slotId));
+    }
+
+    @Override
+    public boolean isFoil(@NotNull ItemStack stack) {
+        return IsFoil.FOIL.getOrDefault(this, (Predicate<ItemStack>) super::isFoil).test(stack);
     }
 }

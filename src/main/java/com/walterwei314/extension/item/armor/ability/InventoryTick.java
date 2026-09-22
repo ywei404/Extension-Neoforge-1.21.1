@@ -4,6 +4,7 @@ import com.google.common.collect.HashMultimap;
 import com.google.common.collect.Multimap;
 import com.walterwei314.extension.item.armor.ModArmorItems;
 import com.walterwei314.extension.item.armor.util.ArmorItemUtils;
+import com.walterwei314.extension.mobeffect.ModMobEffects;
 import com.walterwei314.extension.mobeffect.util.MobEffectUtils;
 import net.minecraft.core.Holder;
 import net.minecraft.sounds.SoundEvents;
@@ -51,9 +52,11 @@ public final class InventoryTick {
                 (player, tickCount) -> {
                     MobEffectUtils.addEffect(player, MobEffects.REGENERATION, 600, 2, MobEffectUtils.ADD_BEFORE_EXPIRATION);
                     MobEffectUtils.addEffect(player, MobEffects.SATURATION, 600, 0, MobEffectUtils.ADD_BEFORE_EXPIRATION);
+                    MobEffectUtils.addEffect(player, ModMobEffects.HEAL_BOOST, 600, 0, MobEffectUtils.ADD_BEFORE_EXPIRATION);
                     MobEffectUtils.addEffect(player, MobEffects.DAMAGE_RESISTANCE, 6000, 1, MobEffectUtils.ADD_BEFORE_EXPIRATION);
                     MobEffectUtils.addEffect(player, MobEffects.FIRE_RESISTANCE, 6000, 1, MobEffectUtils.ADD_BEFORE_EXPIRATION);
                     MobEffectUtils.addEffectEveryTicks(player, MobEffects.ABSORPTION, 2400, 4, 600, tickCount, MobEffectUtils.ALWAYS_ADD);
+                    MobEffectUtils.removeBadEffects(player);
                 });
     }
 }

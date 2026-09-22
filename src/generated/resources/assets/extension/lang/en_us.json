@@ -1,5 +1,6 @@
 {
-  "block.extension.example_block": "Example Block",
+  "effect.extension.heal_boost": "Heal Boost",
+  "enchantment.extension.fortification": "Fortification",
   "item.extension.dirt_boots": "Dirt Boots",
   "item.extension.dirt_chestplate": "Dirt Chestplate",
   "item.extension.dirt_helmet": "Dirt Helmet",
@@ -12,7 +13,6 @@
   "item.extension.enchanted_golden_apple_chestplate": "Enchanted Golden Apple Chestplate",
   "item.extension.enchanted_golden_apple_helmet": "Enchanted Golden Apple Helmet",
   "item.extension.enchanted_golden_apple_leggings": "Enchanted Golden Apple Leggings",
-  "item.extension.example_item": "Example Item",
   "item.extension.golden_apple_boots": "Golden Apple Boots",
   "item.extension.golden_apple_chestplate": "Golden Apple Chestplate",
   "item.extension.golden_apple_helmet": "Golden Apple Helmet",

@@ -1,12 +1,19 @@
 package com.walterwei314.extension.language;
 
 import com.walterwei314.extension.Extensionneoforge1211;
+import com.walterwei314.extension.enchantment.ModEnchantments;
+import com.walterwei314.extension.util.StringUtils;
+import net.minecraft.core.Registry;
 import net.minecraft.core.registries.BuiltInRegistries;
+import net.minecraft.core.registries.Registries;
 import net.minecraft.data.PackOutput;
+import net.minecraft.resources.ResourceKey;
 import net.minecraft.resources.ResourceLocation;
+import net.minecraft.world.item.enchantment.Enchantment;
 import net.neoforged.neoforge.common.data.LanguageProvider;
-import org.apache.commons.lang3.StringUtils;
 
+import java.lang.reflect.Field;
+import java.lang.reflect.Modifier;
 import java.util.Arrays;
 
 public class ModEnglishLanguageProvider extends LanguageProvider {
@@ -24,12 +31,52 @@ public class ModEnglishLanguageProvider extends LanguageProvider {
                 return;
             }
 
-            String path = key.getPath();
-            String[] words = StringUtils.split(path, "_");
-            String[] capitalizedWords = Arrays.stream(words).map(StringUtils::capitalize).toArray(String[]::new);
-            String capitalizedPath = String.join(" ", capitalizedWords);
-
-            add(item, capitalizedPath);
+            add(item, StringUtils.fromPathToDisplayName(key.getPath()));
         });
+
+        BuiltInRegistries.MOB_EFFECT.forEach(mobEffect -> {
+            ResourceLocation key = BuiltInRegistries.MOB_EFFECT.getKey(mobEffect);
+            String namespace = key.getNamespace();
+
+            if (!namespace.equals(Extensionneoforge1211.MODID)){
+                return;
+            }
+
+            add(mobEffect, StringUtils.fromPathToDisplayName(key.getPath()));
+        });
+
+        // Enchantments
+        for (Field field : ModEnchantments.class.getDeclaredFields()) {
+
+            if (!Modifier.isStatic(field.getModifiers())) {
+                continue;
+            }
+
+            if (!ResourceKey.class.isAssignableFrom(field.getType())) {
+                continue;
+            }
+
+            try {
+                Object value = field.get(null);
+
+                if (!(value instanceof ResourceKey<?> resourceKey)) {
+                    continue;
+                }
+
+                ResourceLocation key = resourceKey.location();
+
+                if (!key.getNamespace().equals(Extensionneoforge1211.MODID)) {
+                    continue;
+                }
+
+                add(
+                        "enchantment." + key.getNamespace() + "." + key.getPath(),
+                        StringUtils.fromPathToDisplayName(key.getPath())
+                );
+
+            } catch (IllegalAccessException e) {
+                throw new RuntimeException("Failed to generate language entry for " + field.getName(), e);
+            }
+        }
     }
 }

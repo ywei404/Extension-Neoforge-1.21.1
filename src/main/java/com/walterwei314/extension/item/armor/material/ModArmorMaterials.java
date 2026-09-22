@@ -2,6 +2,7 @@ package com.walterwei314.extension.item.armor.material;
 
 import com.walterwei314.extension.Extensionneoforge1211;
 import com.walterwei314.extension.attribute.BaseAttribute;
+import com.walterwei314.extension.item.armor.texture.ModArmorTextures;
 import com.walterwei314.extension.item.armor.util.ArmorItemUtils;
 import net.minecraft.client.resources.sounds.Sound;
 import net.minecraft.core.registries.Registries;
@@ -61,7 +62,7 @@ public final class ModArmorMaterials {
             "golden_apple_armor_material",
             id -> new ArmorMaterial(
                     ArmorItemUtils.distributeArmor(19), 30, SoundEvents.ARMOR_EQUIP_DIAMOND,
-                    () -> Ingredient.of(Items.GOLDEN_APPLE), List.of(new ArmorMaterial.Layer(id)), 2.0F, 0.0F
+                    () -> Ingredient.of(Items.GOLDEN_APPLE), List.of(new ArmorMaterial.Layer(ModArmorTextures.GOLDEN_APPLE_ARMOR_TEXTURE)), 2.0F, 0.0F
             )
     );
 
@@ -69,7 +70,7 @@ public final class ModArmorMaterials {
             "enchanted_golden_apple_armor_material",
             id -> new ArmorMaterial(
                     ArmorItemUtils.distributeArmor(180), 100, SoundEvents.ARMOR_EQUIP_DIAMOND,
-                    () -> Ingredient.of(Items.ENCHANTED_GOLDEN_APPLE), List.of(new ArmorMaterial.Layer(id)), 20.0F, 10.0F
+                    () -> Ingredient.of(Items.ENCHANTED_GOLDEN_APPLE), List.of(new ArmorMaterial.Layer(ModArmorTextures.GOLDEN_APPLE_ARMOR_TEXTURE)), 20.0F, 10.0F
             )
     );
 }
