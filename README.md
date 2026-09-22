@@ -1,25 +1,50 @@
+# Extension - NeoForge 1.21.1
 
-Installation information
-=======
+Extension is a Minecraft mod for **NeoForge 1.21.1** that expands the vanilla game with new items, armor, status effects, enchantments, attributes, and gameplay mechanics.
 
-This template repository can be directly cloned to get you started with a new
-mod. Simply create a new repository cloned from this one, by following the
-instructions provided by [GitHub](https://docs.github.com/en/repositories/creating-and-managing-repositories/creating-a-repository-from-a-template).
+This is my first Minecraft mod and is currently under active development.
 
-Once you have your clone, simply open the repository in the IDE of your choice. The usual recommendation for an IDE is either IntelliJ IDEA or Eclipse.
+## Features
 
-If at any point you are missing libraries in your IDE, or you've run into problems you can
-run `gradlew --refresh-dependencies` to refresh the local cache. `gradlew clean` to reset everything 
-{this does not affect your code} and then start the process again.
+The current version includes:
 
-Mapping Names:
-============
-By default, the MDK is configured to use the official mapping names from Mojang for methods and fields 
-in the Minecraft codebase. These names are covered by a specific license. All modders should be aware of this
-license. For the latest license text, refer to the mapping file itself, or the reference copy here:
-https://github.com/NeoForged/NeoForm/blob/main/Mojang.md
+- New items and equipment
+- New armor sets, including Golden Apple Armor
+- Custom status effects
+- Custom attributes and attribute-based mechanics
+- New enchantments
+- **Fortification**
+  - Increases Armor Toughness
+  - Has four enchantment levels
+  - Can be obtained through the enchanting system
+- Additional gameplay extensions designed to integrate with vanilla Minecraft
 
-Additional Resources: 
-==========
-Community Documentation: https://docs.neoforged.net/  
-NeoForged Discord: https://discord.neoforged.net/
+More content and mechanics may be added in future releases.
+
+## Requirements
+
+- **Minecraft:** 1.21.1
+- **NeoForge:** 21.1.x
+- **Java:** 21
+
+Version 1.0.0 has been tested with **NeoForge 21.1.251**.
+
+## Installation
+
+1. Install Minecraft 1.21.1.
+2. Install NeoForge for Minecraft 1.21.1.
+3. Download the latest release of Extension.
+4. Place `extension-*.jar` into your Minecraft `mods` folder.
+5. Launch Minecraft using the NeoForge profile.
+
+For version 1.0.0, the mod file is:
+
+`extension-1.0.0.jar`
+
+## Building from Source
+
+Clone this repository and enter the project directory:
+
+```bash
+git clone <repository-url>
+cd Extension-Neoforge-1.21.1
