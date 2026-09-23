@@ -1,5 +1,6 @@
 package com.walterwei314.extension.item.armor.ability;
 
+import com.walterwei314.extension.datacomponent.ModDataComponents;
 import com.walterwei314.extension.item.armor.ModArmorItems;
 import net.minecraft.world.item.ArmorItem;
 import net.minecraft.world.item.ItemStack;
@@ -16,5 +17,8 @@ public final class IsFoil {
     public static void register() {
         ModArmorItems.ENCHANTED_GOLDEN_APPLE_ARMOR_MAP.values().forEach((armorItemDeferredItem) ->
                 FOIL.put(armorItemDeferredItem.get(), itemStack -> true));
+        ModArmorItems.REFINED_DIAMOND_ARMOR_MAP.values().forEach((armorItemDeferredItem) ->
+                FOIL.put(armorItemDeferredItem.get(), itemStack ->
+                        Boolean.TRUE.equals(itemStack.get(ModDataComponents.ACTIVATED.get()))));
     }
 }

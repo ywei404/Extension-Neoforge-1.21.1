@@ -35,5 +35,6 @@
   "item.extension.wooden_boots": "Wooden Boots",
   "item.extension.wooden_chestplate": "Wooden Chestplate",
   "item.extension.wooden_helmet": "Wooden Helmet",
-  "item.extension.wooden_leggings": "Wooden Leggings"
+  "item.extension.wooden_leggings": "Wooden Leggings",
+  "tooltip.extension.fully_awakened": "★ FULLY AWAKENED ★"
 }

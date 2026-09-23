@@ -59,5 +59,7 @@ public class ModEnglishLanguageProvider extends LanguageProvider {
                     StringUtils.fromPathToDisplayName(key.getPath())
             );
         });
+
+        ModTooltips.register(this);
     }
 }

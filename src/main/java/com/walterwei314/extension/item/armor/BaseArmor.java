@@ -1,16 +1,23 @@
 package com.walterwei314.extension.item.armor;
 
+import com.walterwei314.extension.datacomponent.ModDataComponents;
 import com.walterwei314.extension.item.armor.ability.InventoryTick;
 import com.walterwei314.extension.item.armor.ability.IsFoil;
+import com.walterwei314.extension.language.LanguageUtils;
+import com.walterwei314.extension.language.ModTooltips;
+import net.minecraft.ChatFormatting;
 import net.minecraft.core.Holder;
+import net.minecraft.network.chat.Component;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.item.ArmorItem;
 import net.minecraft.world.item.ArmorMaterial;
 import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.item.TooltipFlag;
 import net.minecraft.world.level.Level;
 import org.jetbrains.annotations.NotNull;
 
+import java.util.List;
 import java.util.function.Predicate;
 
 public class BaseArmor extends ArmorItem {
@@ -48,5 +55,20 @@ public class BaseArmor extends ArmorItem {
     @Override
     public boolean isFoil(@NotNull ItemStack stack) {
         return IsFoil.FOIL.getOrDefault(this, (Predicate<ItemStack>) super::isFoil).test(stack);
+    }
+
+    @Override
+    public void appendHoverText(
+            @NotNull ItemStack stack,
+            @NotNull TooltipContext context,
+            @NotNull List<Component> tooltipComponents,
+            @NotNull TooltipFlag tooltipFlag
+    ) {
+        super.appendHoverText(stack, context, tooltipComponents, tooltipFlag);
+
+        if (Boolean.TRUE.equals(stack.get(ModDataComponents.ACTIVATED.get()))) {
+            tooltipComponents.add(Component.translatable(LanguageUtils.getTooltipsPathByName(ModTooltips.FULLY_AWAKENED))
+                    .withStyle(ChatFormatting.GREEN));
+        }
     }
 }
