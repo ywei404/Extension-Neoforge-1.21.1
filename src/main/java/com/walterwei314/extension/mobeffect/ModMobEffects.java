@@ -22,12 +22,12 @@ public final class ModMobEffects {
             () -> new BaseMobEffect(MobEffectCategory.BENEFICIAL, 0x00FF00)
                     .addAttributeModifier(
                             ModAttributes.HEAL_MULTIPLIER.getDelegate(),
-                            ResourceLocation.fromNamespaceAndPath(
-                                    Extensionneoforge1211.MODID,
-                                    "effect.heal_boost"
-                            ),
-                            0.5D,
-                            AttributeModifier.Operation.ADD_MULTIPLIED_BASE
+                            ResourceLocation.fromNamespaceAndPath(Extensionneoforge1211.MODID, "effect.heal_boost"),
+                            0.5D, AttributeModifier.Operation.ADD_MULTIPLIED_BASE
                     )
+    );
+
+    public static final DeferredHolder<MobEffect, MobEffect> SUSTENANCE = MOB_EFFECTS.register(
+            "sustenance", () -> new BaseMobEffect(MobEffectCategory.BENEFICIAL, 0xFFD700)
     );
 }

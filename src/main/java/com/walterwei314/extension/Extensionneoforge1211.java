@@ -6,6 +6,7 @@ import com.walterwei314.extension.item.armor.ability.InventoryTick;
 import com.walterwei314.extension.item.armor.ability.IsFoil;
 import com.walterwei314.extension.item.armor.material.ModArmorMaterials;
 import com.walterwei314.extension.mobeffect.ModMobEffects;
+import com.walterwei314.extension.mobeffect.ability.ApplyEffectTick;
 import net.minecraft.world.effect.MobEffect;
 import org.slf4j.Logger;
 
@@ -99,5 +100,6 @@ public class Extensionneoforge1211 {
         // Register tick events to armor items
         InventoryTick.register();
         IsFoil.register();
+        ApplyEffectTick.register();
     }
 }

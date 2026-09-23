@@ -31,10 +31,8 @@ public final class InventoryTick {
     private InventoryTick() {
     }
 
-    public static final Multimap<ArmorItem, TriConsumer<ItemStack, LivingEntity, Integer>> TICKS =
-            HashMultimap.create();
-    public static final Multimap<Map<ArmorItem.Type, ArmorItem>, BiConsumer<Player, Long>> FULL_SET_TICKS =
-            HashMultimap.create();
+    public static final Multimap<ArmorItem, TriConsumer<ItemStack, LivingEntity, Integer>> TICKS = HashMultimap.create();
+    public static final Multimap<Map<ArmorItem.Type, ArmorItem>, BiConsumer<Player, Long>> FULL_SET_TICKS = HashMultimap.create();
     public static final Map<Map<ArmorItem.Type, ArmorItem>, Map<UUID, Long>> TICK_COUNTS = new HashMap<>();
 
     public static void register() {
@@ -47,14 +45,18 @@ public final class InventoryTick {
         FULL_SET_TICKS.put(ArmorItemUtils.getArmorItemMap(ModArmorItems.GOLDEN_APPLE_ARMOR_MAP),
                 (player, tickCount) -> {
                     MobEffectUtils.addEffect(player, MobEffects.REGENERATION, 100, 0, MobEffectUtils.ADD_BEFORE_EXPIRATION);
+                    MobEffectUtils.addEffect(player, ModMobEffects.SUSTENANCE, 100, 0, MobEffectUtils.ADD_BEFORE_EXPIRATION);
                 });
         FULL_SET_TICKS.put(ArmorItemUtils.getArmorItemMap(ModArmorItems.ENCHANTED_GOLDEN_APPLE_ARMOR_MAP),
                 (player, tickCount) -> {
                     MobEffectUtils.addEffect(player, MobEffects.REGENERATION, 600, 2, MobEffectUtils.ADD_BEFORE_EXPIRATION);
+                    MobEffectUtils.addEffect(player, ModMobEffects.SUSTENANCE, 600, 4, MobEffectUtils.ADD_BEFORE_EXPIRATION);
                     MobEffectUtils.addEffect(player, MobEffects.SATURATION, 600, 0, MobEffectUtils.ADD_BEFORE_EXPIRATION);
                     MobEffectUtils.addEffect(player, ModMobEffects.HEAL_BOOST, 600, 0, MobEffectUtils.ADD_BEFORE_EXPIRATION);
                     MobEffectUtils.addEffect(player, MobEffects.DAMAGE_RESISTANCE, 6000, 1, MobEffectUtils.ADD_BEFORE_EXPIRATION);
                     MobEffectUtils.addEffect(player, MobEffects.FIRE_RESISTANCE, 6000, 1, MobEffectUtils.ADD_BEFORE_EXPIRATION);
+                    MobEffectUtils.addEffect(player, MobEffects.WATER_BREATHING, 6000, 1, MobEffectUtils.ADD_BEFORE_EXPIRATION);
+                    MobEffectUtils.addEffect(player, MobEffects.NIGHT_VISION, 6000, 1, MobEffectUtils.ADD_BEFORE_EXPIRATION);
                     MobEffectUtils.addEffectEveryTicks(player, MobEffects.ABSORPTION, 2400, 4, 600, tickCount, MobEffectUtils.ALWAYS_ADD);
                     MobEffectUtils.removeBadEffects(player);
                 });
