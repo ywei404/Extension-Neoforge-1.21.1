@@ -41,15 +41,9 @@ public class ArmorItemRecipeProvider extends RecipeProvider {
         generateArmorRecipes(output, Items.EMERALD, ModArmorItems.EMERALD_ARMOR_MAP);
         generateArmorRecipes(output, Items.GOLDEN_APPLE, ModArmorItems.GOLDEN_APPLE_ARMOR_MAP);
         generateArmorRecipes(output, Items.ENCHANTED_GOLDEN_APPLE, ModArmorItems.ENCHANTED_GOLDEN_APPLE_ARMOR_MAP);
+        generateArmorRecipes(output, Items.DIAMOND_BLOCK, ModArmorItems.REFINED_DIAMOND_ARMOR_MAP);
 
-
-        // ItemLike 类型以后也可以这样：
-        //
-        // generateArmorRecipes(
-        //         output,
-        //         Items.OBSIDIAN,
-        //         ModArmorItems.OBSIDIAN_ARMOR_MAP
-        // );
+        ModArmorItemSmithingRecipeFactory.buildRecipes(output);
     }
 
     /*

@@ -1,6 +1,7 @@
 package com.walterwei314.extension;
 
 import com.walterwei314.extension.attribute.ModAttributes;
+import com.walterwei314.extension.datacomponent.ModDataComponents;
 import com.walterwei314.extension.item.armor.ModArmorItems;
 import com.walterwei314.extension.item.armor.ability.InventoryTick;
 import com.walterwei314.extension.item.armor.ability.IsFoil;
@@ -62,6 +63,7 @@ public class Extensionneoforge1211 {
         ModArmorMaterials.ARMOR_MATERIALS.register(modEventBus);
         // Register the Deferred Register to the mod event bus so mob effects get registered
         ModArmorItems.ARMOR_ITEMS.register(modEventBus);
+        ModDataComponents.COMPONENTS.register(modEventBus);
         // Register ourselves for server and other game events we are interested in.
         // Note that this is necessary if and only if we want *this* class (Extensionneoforge1211) to respond directly to events.
         // Do not add this line if there are no @SubscribeEvent-annotated functions in this class, like onServerStarting() below.

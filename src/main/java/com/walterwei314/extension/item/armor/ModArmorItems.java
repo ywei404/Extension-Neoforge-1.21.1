@@ -33,6 +33,8 @@ public final class ModArmorItems {
             registerArmorSet("golden_apple", ModArmorMaterials.GOLDEN_APPLE_ARMOR_MATERIAL.getDelegate(), 56);
     public static final Map<ArmorItem.Type, DeferredItem<ArmorItem>> ENCHANTED_GOLDEN_APPLE_ARMOR_MAP =
             registerArmorSet("enchanted_golden_apple", ModArmorMaterials.ENCHANTED_GOLDEN_APPLE_ARMOR_MATERIAL.getDelegate(), 10000);
+    public static final Map<ArmorItem.Type, DeferredItem<ArmorItem>> REFINED_DIAMOND_ARMOR_MAP =
+            registerArmorSet("refined_diamond_armor", ModArmorMaterials.REFINED_DIAMOND_ARMOR.getDelegate(), 198);
 
     private static Map<ArmorItem.Type, DeferredItem<ArmorItem>> registerArmorSet(
             String name,

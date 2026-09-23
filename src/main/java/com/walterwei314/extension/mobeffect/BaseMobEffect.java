@@ -31,7 +31,7 @@ public class BaseMobEffect extends MobEffect {
 
     @Override
     public boolean shouldApplyEffectTickThisTick(int duration, int amplifier) {
-        BiPredicate<Integer, Integer> canApplyEffect = ApplyEffectTick.CAN_EFFECTS.get(this);
+        BiPredicate<Integer, Integer> canApplyEffect = ApplyEffectTick.SHOULD_EFFECTS.get(this);
 
         if (canApplyEffect == null) {
             return super.shouldApplyEffectTickThisTick(duration, amplifier);

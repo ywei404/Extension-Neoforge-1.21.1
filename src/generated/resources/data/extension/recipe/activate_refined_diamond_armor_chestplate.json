@@ -1,0 +1,19 @@
+{
+  "type": "minecraft:smithing_transform",
+  "addition": {
+    "item": "minecraft:nether_star"
+  },
+  "base": {
+    "item": "extension:refined_diamond_armor_chestplate"
+  },
+  "result": {
+    "components": {
+      "extension:activated": true
+    },
+    "count": 1,
+    "id": "extension:refined_diamond_armor_chestplate"
+  },
+  "template": {
+    "item": "minecraft:netherite_upgrade_smithing_template"
+  }
+}

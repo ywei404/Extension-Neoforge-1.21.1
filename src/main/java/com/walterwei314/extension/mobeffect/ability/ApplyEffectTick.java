@@ -13,7 +13,7 @@ public final class ApplyEffectTick {
     private ApplyEffectTick() {}
 
     public static final Map<MobEffect, BiPredicate<LivingEntity, Integer>> TICK_EFFECTS = new HashMap<>();
-    public static final Map<MobEffect, BiPredicate<Integer, Integer>> CAN_EFFECTS = new HashMap<>();
+    public static final Map<MobEffect, BiPredicate<Integer, Integer>> SHOULD_EFFECTS = new HashMap<>();
     public static final BiPredicate<Integer, Integer> EVERY_TICK = (duration, amplifier) -> true;
 
     public static void register(){
@@ -31,6 +31,6 @@ public final class ApplyEffectTick {
 
             return true;
         });
-        CAN_EFFECTS.put(ModMobEffects.SUSTENANCE.get(), EVERY_TICK);
+        SHOULD_EFFECTS.put(ModMobEffects.SUSTENANCE.get(), EVERY_TICK);
     }
 }

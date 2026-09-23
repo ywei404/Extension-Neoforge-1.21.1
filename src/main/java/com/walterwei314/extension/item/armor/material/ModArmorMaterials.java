@@ -4,8 +4,10 @@ import com.walterwei314.extension.Extensionneoforge1211;
 import com.walterwei314.extension.attribute.BaseAttribute;
 import com.walterwei314.extension.item.armor.texture.ModArmorTextures;
 import com.walterwei314.extension.item.armor.util.ArmorItemUtils;
+import net.minecraft.client.renderer.texture.TextureAtlas;
 import net.minecraft.client.resources.sounds.Sound;
 import net.minecraft.core.registries.Registries;
+import net.minecraft.resources.ResourceLocation;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.tags.ItemTags;
 import net.minecraft.world.entity.ai.attributes.Attribute;
@@ -62,7 +64,7 @@ public final class ModArmorMaterials {
             "golden_apple_armor_material",
             id -> new ArmorMaterial(
                     ArmorItemUtils.distributeArmor(19), 30, SoundEvents.ARMOR_EQUIP_DIAMOND,
-                    () -> Ingredient.of(Items.GOLDEN_APPLE), List.of(new ArmorMaterial.Layer(ModArmorTextures.GOLDEN_APPLE_ARMOR_TEXTURE)), 2.0F, 0.0F
+                    () -> Ingredient.of(Items.GOLDEN_APPLE), List.of(new ArmorMaterial.Layer(ModArmorTextures.GOLDEN_APPLE_ARMOR_TEXTURE)), 1.6F, 0.0F
             )
     );
 
@@ -71,6 +73,14 @@ public final class ModArmorMaterials {
             id -> new ArmorMaterial(
                     ArmorItemUtils.distributeArmor(180), 100, SoundEvents.ARMOR_EQUIP_DIAMOND,
                     () -> Ingredient.of(Items.ENCHANTED_GOLDEN_APPLE), List.of(new ArmorMaterial.Layer(ModArmorTextures.GOLDEN_APPLE_ARMOR_TEXTURE)), 20.0F, 10.0F
+            )
+    );
+
+    public static final DeferredHolder<ArmorMaterial, ArmorMaterial> REFINED_DIAMOND_ARMOR = ARMOR_MATERIALS.register(
+            "refined_diamond_armor",
+            id -> new ArmorMaterial(
+                    ArmorItemUtils.distributeArmor(28), 18, SoundEvents.ARMOR_EQUIP_DIAMOND,
+                    () -> Ingredient.of(Items.DIAMOND_BLOCK), List.of(new ArmorMaterial.Layer(ResourceLocation.withDefaultNamespace("diamond"))), 3.8F, 0.18F
             )
     );
 }

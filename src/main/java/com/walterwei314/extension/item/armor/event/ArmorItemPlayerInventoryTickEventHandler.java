@@ -23,6 +23,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.UUID;
 import java.util.function.BiConsumer;
+import java.util.function.BiPredicate;
 
 @EventBusSubscriber
 public class ArmorItemPlayerInventoryTickEventHandler {
@@ -35,6 +36,7 @@ public class ArmorItemPlayerInventoryTickEventHandler {
         }
 
         Map<ArmorItem.Type, ArmorItem> currentArmorItemMap = ArmorItemUtils.getCurrentArmorItemMap(player);
+
         Collection<BiConsumer<Player, Long>> fullSetConsumers = InventoryTick.FULL_SET_TICKS.get(currentArmorItemMap);
 
         if (fullSetConsumers.isEmpty()) {
@@ -44,11 +46,19 @@ public class ArmorItemPlayerInventoryTickEventHandler {
         UUID playerId = player.getUUID();
 
         Map<UUID, Long> playerArmorTickData =
-                InventoryTick.TICK_COUNTS.computeIfAbsent(
-                        currentArmorItemMap, key -> new HashMap<>()
-                );
+                InventoryTick.TICK_COUNTS.computeIfAbsent(currentArmorItemMap, key -> new HashMap<>());
 
         long tickCount = playerArmorTickData.getOrDefault(playerId, 0L);
+
+        BiPredicate<Player, Long> shouldTickArmor =
+                InventoryTick.SHOULD_TICKS.getOrDefault(currentArmorItemMap, (p, tick) -> true);
+
+//        System.out.println(tickCount);
+
+        if (!shouldTickArmor.test(player, tickCount)) {
+            return;
+        }
+
         fullSetConsumers.forEach(consumer -> consumer.accept(player, tickCount));
         playerArmorTickData.put(playerId, tickCount + 1);
     }

@@ -30,30 +30,8 @@ public final class ArmorItemDataGenerator {
         CompletableFuture<TagsProvider.TagLookup<Block>> blockTags =
                 CompletableFuture.completedFuture(TagsProvider.TagLookup.empty());
 
-        generator.addProvider(
-                event.includeServer(),
-                new ArmorItemRecipeProvider(
-                        output,
-                        lookupProvider
-                )
-        );
-
-        generator.addProvider(
-                event.includeClient(),
-                new ArmorItemModelProvider(
-                        output,
-                        existingFileHelper
-                )
-        );
-
-        generator.addProvider(
-                event.includeServer(),
-                new ArmorItemTagsProvider(
-                        output,
-                        lookupProvider,
-                        blockTags,
-                        existingFileHelper
-                )
-        );
+        generator.addProvider(event.includeServer(), new ArmorItemRecipeProvider(output, lookupProvider));
+        generator.addProvider(event.includeClient(), new ArmorItemModelProvider(output, existingFileHelper));
+        generator.addProvider(event.includeServer(), new ArmorItemTagsProvider(output, lookupProvider, blockTags, existingFileHelper));
     }
 }

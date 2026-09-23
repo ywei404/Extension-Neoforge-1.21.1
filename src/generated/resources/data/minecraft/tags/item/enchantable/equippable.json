@@ -27,6 +27,10 @@
     "extension:enchanted_golden_apple_helmet",
     "extension:enchanted_golden_apple_chestplate",
     "extension:enchanted_golden_apple_leggings",
-    "extension:enchanted_golden_apple_boots"
+    "extension:enchanted_golden_apple_boots",
+    "extension:refined_diamond_armor_helmet",
+    "extension:refined_diamond_armor_chestplate",
+    "extension:refined_diamond_armor_leggings",
+    "extension:refined_diamond_armor_boots"
   ]
 }

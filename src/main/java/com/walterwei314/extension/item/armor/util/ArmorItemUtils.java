@@ -1,11 +1,15 @@
 package com.walterwei314.extension.item.armor.util;
 
+import net.minecraft.core.component.DataComponentType;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ArmorItem;
 import net.minecraft.world.item.Item;
+import net.minecraft.world.item.ItemStack;
+import net.neoforged.neoforge.registries.DeferredHolder;
 import net.neoforged.neoforge.registries.DeferredItem;
 
 import java.util.EnumMap;
+import java.util.Iterator;
 import java.util.Map;
 
 public final class ArmorItemUtils {
@@ -173,5 +177,23 @@ public final class ArmorItemUtils {
         }
 
         return result;
+    }
+
+    public static <T> boolean isAllArmorsContainSameDataComponent(
+            Player player,
+            DeferredHolder<DataComponentType<?>, DataComponentType<T>> dataComponent,
+            T containValue
+    ) {
+        if (player == null || dataComponent == null || containValue == null) {
+            return false;
+        }
+
+        for (ItemStack armorStack : player.getArmorSlots()) {
+            if (!containValue.equals(armorStack.get(dataComponent.get()))) {
+                return false;
+            }
+        }
+
+        return true;
     }
 }
