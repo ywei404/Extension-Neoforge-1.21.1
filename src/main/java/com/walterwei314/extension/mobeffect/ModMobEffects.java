@@ -30,4 +30,24 @@ public final class ModMobEffects {
     public static final DeferredHolder<MobEffect, MobEffect> SUSTENANCE = MOB_EFFECTS.register(
             "sustenance", () -> new BaseMobEffect(MobEffectCategory.BENEFICIAL, 0xFFD700)
     );
+
+    public static final DeferredHolder<MobEffect, MobEffect> RESILIENCE = MOB_EFFECTS.register(
+            "resilience",
+            () -> new BaseMobEffect(MobEffectCategory.BENEFICIAL, 0x4A90E2)
+                    .addAttributeModifier(
+                            ModAttributes.INVULNERABILITY_TICKS.getDelegate(),
+                            ResourceLocation.fromNamespaceAndPath(Extensionneoforge1211.MODID, "effect.resilience"),
+                            4.0D, AttributeModifier.Operation.ADD_VALUE
+                    )
+    );
+
+    public static final DeferredHolder<MobEffect, MobEffect> VULNERABILITY = MOB_EFFECTS.register(
+            "vulnerability",
+            () -> new BaseMobEffect(MobEffectCategory.HARMFUL, 0x9B59B6)
+                    .addAttributeModifier(
+                            ModAttributes.INVULNERABILITY_TICKS.getDelegate(),
+                            ResourceLocation.fromNamespaceAndPath(Extensionneoforge1211.MODID, "effect.vulnerability"),
+                            -1.5D, AttributeModifier.Operation.ADD_VALUE
+                    )
+    );
 }

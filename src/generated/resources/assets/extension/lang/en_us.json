@@ -1,6 +1,10 @@
 {
+  "attribute.extension.heal_multiplier": "Heal Multiplier",
+  "attribute.extension.invulnerability_ticks": "Invulnerability Ticks",
   "effect.extension.heal_boost": "Heal Boost",
+  "effect.extension.resilience": "Resilience",
   "effect.extension.sustenance": "Sustenance",
+  "effect.extension.vulnerability": "Vulnerability",
   "enchantment.extension.fortification": "Fortification",
   "enchantment.extension.reinforcement": "Reinforcement",
   "enchantment.extension.vitality": "Vitality",

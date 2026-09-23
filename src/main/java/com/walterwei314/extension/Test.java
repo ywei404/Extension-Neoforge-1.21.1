@@ -31,7 +31,7 @@ public class Test {
 //                System.out.println("heal_multiplier: " + instance.getValue());
 //            }
 
-            System.out.println(player.getFoodData().getExhaustionLevel());
+            System.out.println(player.getAttribute(ModAttributes.INVULNERABILITY_TICKS.getDelegate()).getValue());
         }
     }
 }

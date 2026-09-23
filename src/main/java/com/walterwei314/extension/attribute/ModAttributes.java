@@ -15,4 +15,9 @@ public final class ModAttributes {
             "heal_multiplier",
             () -> new BaseAttribute("heal_multiplier", 1.0, 0.0, Float.MAX_VALUE)
     );
+
+    public static final DeferredHolder<Attribute, Attribute> INVULNERABILITY_TICKS = ATTRIBUTES.register(
+            "invulnerability_ticks",
+            () -> new BaseAttribute("invulnerability_ticks", 20.0, 0.0, Float.MAX_VALUE)
+    );
 }

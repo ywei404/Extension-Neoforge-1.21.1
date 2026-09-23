@@ -17,6 +17,7 @@ public final class InitializeAttributeOnLivingEntity {
         // 给你需要的实体类型添加 HEAL_MULTIPLIER
         event.getTypes().forEach(entityType -> {
             event.add(entityType, ModAttributes.HEAL_MULTIPLIER.getDelegate());
+            event.add(entityType, ModAttributes.INVULNERABILITY_TICKS.getDelegate());
         });
     }
 }

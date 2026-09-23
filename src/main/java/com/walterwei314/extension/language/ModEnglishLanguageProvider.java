@@ -46,6 +46,19 @@ public class ModEnglishLanguageProvider extends LanguageProvider {
             add(mobEffect, StringUtils.fromPathToDisplayName(key.getPath()));
         });
 
+        BuiltInRegistries.ATTRIBUTE.forEach(attribute -> {
+            ResourceLocation key = BuiltInRegistries.ATTRIBUTE.getKey(attribute);
+
+            if (!ModUtils.isKeyInThisMod(key)){
+                return;
+            }
+
+            add(
+                    "attribute." + Extensionneoforge1211.MODID + "." + attribute.getDescriptionId(),
+                    StringUtils.fromPathToDisplayName(key.getPath())
+            );
+        });
+
         // Enchantments
         ReflectionUtils.staticResourceKeyForEach(ModEnchantments.class, resourceKey -> {
             ResourceLocation key = resourceKey.location();
