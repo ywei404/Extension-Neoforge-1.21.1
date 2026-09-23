@@ -37,7 +37,7 @@ public final class ModMobEffects {
                     .addAttributeModifier(
                             ModAttributes.INVULNERABILITY_TICKS.getDelegate(),
                             ResourceLocation.fromNamespaceAndPath(Extensionneoforge1211.MODID, "effect.resilience"),
-                            4.0D, AttributeModifier.Operation.ADD_VALUE
+                            2.0D, AttributeModifier.Operation.ADD_VALUE
                     )
     );
 
@@ -47,7 +47,7 @@ public final class ModMobEffects {
                     .addAttributeModifier(
                             ModAttributes.INVULNERABILITY_TICKS.getDelegate(),
                             ResourceLocation.fromNamespaceAndPath(Extensionneoforge1211.MODID, "effect.vulnerability"),
-                            -1.5D, AttributeModifier.Operation.ADD_VALUE
+                            -1.0D, AttributeModifier.Operation.ADD_VALUE
                     )
     );
 }
