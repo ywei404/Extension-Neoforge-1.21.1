@@ -80,7 +80,16 @@ public final class MobEffectUtils {
             (mobEffectInstance, duration, amplifier) ->
                     mobEffectInstance.getDuration() <= 1 || mobEffectInstance.getAmplifier() < amplifier;
 
-    public static<T extends Collection<? extends Holder<MobEffect>>> void removeEffects(LivingEntity entity, T effectsToRemove) {
+    public static void removeEffect(LivingEntity entity, Holder<MobEffect> effectsToRemove) {
+        if (entity == null || entity.level().isClientSide() || effectsToRemove == null
+        ) {
+            return;
+        }
+
+        entity.removeEffect(effectsToRemove);
+    }
+
+    public static void removeEffects(LivingEntity entity, Collection<? extends Holder<MobEffect>> effectsToRemove) {
         if (entity == null
                 || entity.level().isClientSide()
                 || effectsToRemove == null

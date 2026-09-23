@@ -50,6 +50,7 @@ public final class InventoryTick {
         FULL_SET_TICKS.put(ArmorItemUtils.getArmorItemMap(ModArmorItems.GOLDEN_APPLE_ARMOR_MAP), (player, tickCount) -> {
                     MobEffectUtils.addEffect(player, MobEffects.REGENERATION, 100, 0, MobEffectUtils.ADD_BEFORE_EXPIRATION);
                     MobEffectUtils.addEffect(player, ModMobEffects.SUSTENANCE, 100, 0, MobEffectUtils.ADD_BEFORE_EXPIRATION);
+                    MobEffectUtils.removeEffect(player, MobEffects.HUNGER);
                 });
         FULL_SET_TICKS.put(ArmorItemUtils.getArmorItemMap(ModArmorItems.ENCHANTED_GOLDEN_APPLE_ARMOR_MAP), (player, tickCount) -> {
                     MobEffectUtils.addEffect(player, MobEffects.REGENERATION, 600, 2, MobEffectUtils.ADD_BEFORE_EXPIRATION);
@@ -69,7 +70,9 @@ public final class InventoryTick {
             }
 
             MobEffectUtils.addEffect(player, MobEffects.REGENERATION, 200, 1, MobEffectUtils.ADD_BEFORE_EXPIRATION);
-            MobEffectUtils.addEffectEveryTicks(player, MobEffects.ABSORPTION, 4800, 0, 500, tickCount, MobEffectUtils.ALWAYS_ADD);
+            MobEffectUtils.addEffect(player, MobEffects.DAMAGE_BOOST, 2000, 0, MobEffectUtils.ADD_BEFORE_EXPIRATION);
+            MobEffectUtils.addEffectEveryTicks(player, MobEffects.ABSORPTION, 4800, 1, 500, tickCount, MobEffectUtils.ALWAYS_ADD);
+            MobEffectUtils.removeEffect(player, MobEffects.WEAKNESS);
         });
         SHOULD_TICKS.put(ArmorItemUtils.getArmorItemMap(ModArmorItems.REFINED_DIAMOND_ARMOR_MAP), (player, tickCount) ->
                 ArmorItemUtils.isAllArmorsContainSameDataComponent(player, ModDataComponents.ACTIVATED, true));
