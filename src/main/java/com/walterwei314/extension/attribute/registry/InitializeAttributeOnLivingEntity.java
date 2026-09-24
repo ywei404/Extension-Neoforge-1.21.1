@@ -19,6 +19,7 @@ public final class InitializeAttributeOnLivingEntity {
             event.add(entityType, ModAttributes.HEAL_MULTIPLIER.getDelegate());
             event.add(entityType, ModAttributes.INVULNERABILITY_TICKS.getDelegate());
             event.add(entityType, ModAttributes.ABSORPTION_GAIN_MULTIPLIER.getDelegate());
+            event.add(entityType, ModAttributes.ABSORPTION_EFFECT_BASE_VALUE.getDelegate());
         });
     }
 }

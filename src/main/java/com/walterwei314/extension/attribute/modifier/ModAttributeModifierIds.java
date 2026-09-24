@@ -8,4 +8,7 @@ public final class ModAttributeModifierIds {
 
     public static final ResourceLocation ABSORPTION_GAIN_MULTIPLIER_MODIFIER =
             ResourceLocation.fromNamespaceAndPath(Extensionneoforge1211.MODID, "absorption_gain_multiplier_modifier");
+
+    public static final ResourceLocation ABSORPTION_MODIFIER =
+            ResourceLocation.withDefaultNamespace("effect.absorption");
 }

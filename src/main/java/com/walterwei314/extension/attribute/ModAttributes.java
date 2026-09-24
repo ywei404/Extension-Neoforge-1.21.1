@@ -25,4 +25,9 @@ public final class ModAttributes {
             "absorption_gain_multiplier",
             () -> new BaseAttribute("absorption_gain_multiplier", 1.0, 0.0, Float.MAX_VALUE)
     );
+
+    public static final DeferredHolder<Attribute, Attribute> ABSORPTION_EFFECT_BASE_VALUE = ATTRIBUTES.register(
+            "absorption_effect_base_value",
+            () -> new BaseAttribute("absorption_effect_base_value", 4.0, 0.0, Float.MAX_VALUE)
+    );
 }
