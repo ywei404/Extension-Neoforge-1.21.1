@@ -18,6 +18,7 @@ public final class InitializeAttributeOnLivingEntity {
         event.getTypes().forEach(entityType -> {
             event.add(entityType, ModAttributes.HEAL_MULTIPLIER.getDelegate());
             event.add(entityType, ModAttributes.INVULNERABILITY_TICKS.getDelegate());
+            event.add(entityType, ModAttributes.ABSORPTION_GAIN_MULTIPLIER.getDelegate());
         });
     }
 }

@@ -20,4 +20,9 @@ public final class ModAttributes {
             "invulnerability_ticks",
             () -> new BaseAttribute("invulnerability_ticks", 20.0, 0.0, Float.MAX_VALUE)
     );
+
+    public static final DeferredHolder<Attribute, Attribute> ABSORPTION_GAIN_MULTIPLIER = ATTRIBUTES.register(
+            "absorption_gain_multiplier",
+            () -> new BaseAttribute("absorption_gain_multiplier", 1.0, 0.0, Float.MAX_VALUE)
+    );
 }
