@@ -135,7 +135,7 @@ public class AttributeLivingAbsorptionChangeEventHandler {
              *        dynamic MAX += actual
              */
             float requiredMaxIncrease =
-                    isCausedByAbsorptionEffect ? actualChangeAmount - changeAmount : actualChangeAmount;
+                    isCausedByAbsorptionEffect ? Math.max(0.0F, actualChangeAmount - changeAmount) : actualChangeAmount;
             dynamicMaxAbsorption += requiredMaxIncrease;
 
             /*
@@ -213,7 +213,8 @@ public class AttributeLivingAbsorptionChangeEventHandler {
          * 获取更新之前的原版 Absorption Effect modifier。
          */
         AttributeModifier originalModifier = maxAbsorptionInstance.getModifier(ModAttributeModifierIds.ABSORPTION_MODIFIER);
-        double originalAmount = originalModifier == null ? 0.0D : originalModifier.amount();
+        double originalAmount =
+                originalModifier == null ? 0.0D : Math.min(originalModifier.amount(), entity.getAbsorptionAmount());
 
         /*
          * 计算新 Absorption Effect 应提供的基础 MAX。
