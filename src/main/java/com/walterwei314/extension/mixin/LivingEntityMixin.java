@@ -1,4 +1,4 @@
-package com.walterwei314.extension.event.mixin;
+package com.walterwei314.extension.mixin;
 
 import com.walterwei314.extension.event.ModHooks;
 import net.minecraft.server.level.ServerLevel;
